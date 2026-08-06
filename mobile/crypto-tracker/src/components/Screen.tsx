@@ -1,5 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { BlurView } from 'expo-blur';
+import { LinearGradient } from 'expo-linear-gradient';
 import { colors, spacing } from '../theme/tokens';
 import { useTheme } from '../theme/useTheme';
 
@@ -8,12 +10,12 @@ type Props = PropsWithChildren<{ scroll?: boolean }>;
 export function Screen({ children, scroll = true }: Props) {
   const { colors: themeColors } = useTheme();
   const content = scroll ? <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>{children}</ScrollView> : children;
-  return <SafeAreaView style={[styles.safe, { backgroundColor: themeColors.ink }]}>{content}</SafeAreaView>;
+  return <LinearGradient colors={[themeColors.ink, `${themeColors.red}0d`, themeColors.ink]} style={styles.background}><SafeAreaView style={styles.safe}>{content}</SafeAreaView></LinearGradient>;
 }
 
 export function Card({ children, style }: Props & { style?: object }) {
-  const { colors: themeColors } = useTheme();
-  return <View style={[styles.card, { backgroundColor: themeColors.surface, borderColor: themeColors.line }, style]}>{children}</View>;
+  const { colors: themeColors, theme } = useTheme();
+  return <BlurView intensity={28} tint={theme === 'dark' ? 'dark' : 'light'} style={[styles.card, { borderColor: themeColors.line }, style]}><LinearGradient colors={[`${themeColors.surface}e8`, `${themeColors.surfaceRaised}c7`]} style={styles.cardGradient}>{children}</LinearGradient></BlurView>;
 }
 
 export function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
@@ -30,9 +32,11 @@ export function TextTitle({ children, color }: Props & { color: string }) {
 }
 
 const styles = StyleSheet.create({
+  background: { flex: 1 },
   safe: { flex: 1 },
   content: { padding: spacing.md, paddingBottom: spacing.xxl * 2 },
-  card: { borderWidth: 1, borderRadius: 18, padding: spacing.md },
+  card: { overflow: 'hidden', borderWidth: 1, borderRadius: 18 },
+  cardGradient: { padding: spacing.md },
   header: { marginBottom: spacing.lg },
   eyebrowRow: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 10 },
   dot: { width: 6, height: 6, borderRadius: 3 },
