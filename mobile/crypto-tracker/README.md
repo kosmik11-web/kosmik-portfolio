@@ -24,6 +24,21 @@ npm start
 
 Затем открой приложение через Expo Go или запусти Android/iOS simulator.
 
+## Реальная установка
+
+Android APK собирается командой:
+
+```bash
+eas build --platform android --profile preview
+```
+
+Для установки на iPhone нужен Apple Developer Program и TestFlight:
+
+```bash
+eas build --platform ios --profile production
+eas submit --platform ios --profile production
+```
+
 ## Важно
 
 Раздел Pay работает только в Demo Mode. Приватные ключи, реальные платежи и WalletConnect не используются. Для production-интеграции понадобятся провайдер, KYC/AML и отдельный backend.
