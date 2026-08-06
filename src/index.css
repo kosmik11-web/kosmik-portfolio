@@ -1377,6 +1377,19 @@
     color: #e8e6f0;
   }
 
+  .featured-work-card--mobile .featured-work-art {
+    background: linear-gradient(145deg, #192b35, #171625 60%, #101519);
+  }
+
+  .featured-work-card--mobile .featured-work-art > i {
+    border-color: rgba(104, 201, 182, 0.6);
+    transform: translateX(1rem) rotate(34deg) scaleY(0.45);
+  }
+
+  .featured-work-card--mobile .featured-work-art > strong em {
+    color: var(--violet);
+  }
+
   .featured-work-art::before {
     position: absolute;
     inset: 0;
