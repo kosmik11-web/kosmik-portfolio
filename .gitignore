@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.playwright-mcp/
+*.tsbuildinfo
+*.png
+*.jpg
+*.jpeg
+*.webp
+.env
+.env.*
+!.env.example
