@@ -60,6 +60,7 @@ function Reveal({ children, className = '' }: { children: ReactNode; className?:
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light'>(() => (localStorage.getItem('kosmik-theme') as 'dark' | 'light') || 'dark');
+  const [previewImage, setPreviewImage] = useState<{ src: string; alt: string } | null>(null);
   const [roleText, setRoleText] = useState('frontend-разработчик');
   const [showTop, setShowTop] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -98,6 +99,7 @@ function App() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setMenuOpen(false);
+        setPreviewImage(null);
       }
     };
     document.addEventListener('keydown', handleKeyDown);
@@ -208,7 +210,7 @@ function App() {
         </section>
 
         <section id="work" className="section-pad section-muted featured-work" aria-labelledby="work-title">
-          <div className="container"><Reveal><p className="eyebrow">03 / избранные работы</p><div className="section-heading"><h2 id="work-title">Собираю идеи<br /><span>в продукты.</span></h2><p>Первый лендинг уже опубликован. Мобильное приложение — следующий pet-проект в работе.</p></div></Reveal><Reveal className="featured-work-card"><div className="featured-work-art" role="img" aria-label="Превью лендинга Fintegrate"><span>FINTEGRATE / 01</span><strong>DATA<br /><em>IN MOTION.</em></strong><i></i><b>PAYMENTS / API / CRM</b></div><div className="featured-work-copy"><p className="eyebrow">Concept landing / fintech</p><h3>Fintegrate</h3><p>Тёмный data-dashboard лендинг с акцентом на метрики, интеграции и понятный путь от аудита до запуска.</p><div className="featured-work-tags"><span>HTML / CSS / JS</span><span>GitHub Pages</span><span>Responsive</span></div><a className="button button--primary" href="./fintech-integrations/" target="_blank" rel="noreferrer">Открыть лендинг <ArrowUpRight /></a></div></Reveal><Reveal className="featured-work-card featured-work-card--mobile"><div className="featured-work-screens" aria-label="Скриншоты мобильного приложения"><img src="./crypto-tracker/market.png" alt="Экран рынка Crypto Tracker" /><img src="./crypto-tracker/portfolio.png" alt="Экран портфеля Crypto Tracker" /><img src="./crypto-tracker/pay.png" alt="Экран Demo Pay Crypto Tracker" /></div><div className="featured-work-copy"><p className="eyebrow">Mobile app / MVP</p><h3>Crypto Tracker &amp; Pay</h3><p>Кроссплатформенное приложение с рынком, графиками, локальным портфелем, конвертером и Demo Pay-сценарием.</p><div className="featured-work-tags"><span>React Native</span><span>Expo</span><span>TypeScript</span></div><a className="button button--ghost" href="https://github.com/kosmik11-web/kosmik-portfolio/tree/main/mobile/crypto-tracker" target="_blank" rel="noreferrer">Смотреть код <ArrowUpRight /></a></div></Reveal></div>
+          <div className="container"><Reveal><p className="eyebrow">03 / избранные работы</p><div className="section-heading"><h2 id="work-title">Собираю идеи<br /><span>в продукты.</span></h2><p>Первый лендинг уже опубликован. Мобильное приложение — следующий pet-проект в работе.</p></div></Reveal><Reveal className="featured-work-card"><div className="featured-work-art" role="img" aria-label="Превью лендинга Fintegrate"><span>FINTEGRATE / 01</span><strong>DATA<br /><em>IN MOTION.</em></strong><i></i><b>PAYMENTS / API / CRM</b></div><div className="featured-work-copy"><p className="eyebrow">Concept landing / fintech</p><h3>Fintegrate</h3><p>Тёмный data-dashboard лендинг с акцентом на метрики, интеграции и понятный путь от аудита до запуска.</p><div className="featured-work-tags"><span>HTML / CSS / JS</span><span>GitHub Pages</span><span>Responsive</span></div><a className="button button--primary" href="./fintech-integrations/" target="_blank" rel="noreferrer">Открыть лендинг <ArrowUpRight /></a></div></Reveal><Reveal className="featured-work-card featured-work-card--mobile"><div className="featured-work-screens" aria-label="Скриншоты мобильного приложения"><button type="button" className="screenshot-button" onClick={() => setPreviewImage({ src: './crypto-tracker/market.png', alt: 'Экран рынка Crypto Tracker' })} aria-label="Открыть экран рынка крупно"><img src="./crypto-tracker/market.png" alt="Экран рынка Crypto Tracker" /></button><button type="button" className="screenshot-button" onClick={() => setPreviewImage({ src: './crypto-tracker/portfolio.png', alt: 'Экран портфеля Crypto Tracker' })} aria-label="Открыть экран портфеля крупно"><img src="./crypto-tracker/portfolio.png" alt="Экран портфеля Crypto Tracker" /></button><button type="button" className="screenshot-button" onClick={() => setPreviewImage({ src: './crypto-tracker/pay.png', alt: 'Экран Demo Pay Crypto Tracker' })} aria-label="Открыть экран Demo Pay крупно"><img src="./crypto-tracker/pay.png" alt="Экран Demo Pay Crypto Tracker" /></button></div><div className="featured-work-copy"><p className="eyebrow">Mobile app / MVP</p><h3>Crypto Tracker &amp; Pay</h3><p>Кроссплатформенное приложение с рынком, графиками, локальным портфелем, конвертером и Demo Pay-сценарием.</p><div className="featured-work-tags"><span>React Native</span><span>Expo</span><span>TypeScript</span></div><a className="button button--ghost" href="https://github.com/kosmik11-web/kosmik-portfolio/tree/main/mobile/crypto-tracker" target="_blank" rel="noreferrer">Смотреть код <ArrowUpRight /></a></div></Reveal></div>
         </section>
 
         <section id="experience" className="section-pad section-muted" aria-labelledby="experience-title">
@@ -222,6 +224,8 @@ function App() {
 
       <footer className="site-footer"><div className="container footer-inner"><a className="brand" href="#hero"><span className="brand-mark">k</span><span>kosmik<span className="brand-dot">.</span></span></a><span>Сделано с вниманием / 2026</span><span>© {new Date().getFullYear()} Никита</span></div></footer>
       {showTop && <button className="back-to-top" type="button" aria-label="Вернуться наверх" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><ArrowDown /></button>}
+
+      {previewImage && <div className="image-lightbox" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setPreviewImage(null); }}><div className="image-lightbox__dialog" role="dialog" aria-modal="true" aria-label={previewImage.alt}><button type="button" className="image-lightbox__close" onClick={() => setPreviewImage(null)} aria-label="Закрыть изображение"><CloseIcon /></button><img src={previewImage.src} alt={previewImage.alt} /></div></div>}
 
     </div>
   );

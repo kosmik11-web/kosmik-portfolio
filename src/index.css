@@ -1413,6 +1413,30 @@
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.32);
   }
 
+  .screenshot-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 0.7rem 0.7rem 0 0;
+    background: transparent;
+    cursor: zoom-in;
+  }
+
+  .screenshot-button:focus-visible {
+    outline-offset: -3px;
+  }
+
+  .screenshot-button img {
+    transition: transform 250ms ease, filter 250ms ease;
+  }
+
+  .screenshot-button:hover img,
+  .screenshot-button:focus-visible img {
+    filter: brightness(1.12);
+    transform: translateY(-0.3rem);
+  }
+
   .featured-work-screens img:nth-child(2) {
     transform: translateY(1.2rem);
   }
@@ -1946,6 +1970,56 @@
     font-family: var(--font-mono);
     font-size: 0.6rem;
     font-weight: 400;
+  }
+
+  .image-lightbox {
+    position: fixed;
+    z-index: 90;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: rgba(8, 8, 16, 0.82);
+    backdrop-filter: blur(1rem);
+    animation: fade-in 180ms ease both;
+  }
+
+  .image-lightbox__dialog {
+    position: relative;
+    max-width: min(92vw, 27rem);
+    max-height: 94dvh;
+    padding: 0.45rem;
+    border: 1px solid var(--line-strong);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    animation: modal-in 260ms ease both;
+  }
+
+  .image-lightbox__dialog img {
+    display: block;
+    width: 100%;
+    max-height: calc(94dvh - 0.9rem);
+    object-fit: contain;
+  }
+
+  .image-lightbox__close {
+    position: absolute;
+    z-index: 1;
+    top: 0.8rem;
+    right: 0.8rem;
+    display: grid;
+    width: 2.5rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 50%;
+    background: rgba(15, 15, 25, 0.74);
+    color: white;
+    cursor: pointer;
+  }
+
+  .image-lightbox__close svg {
+    width: 1rem;
   }
 
   .reveal {
