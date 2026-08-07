@@ -1395,10 +1395,15 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: end;
     gap: 0.55rem;
-    min-height: 19rem;
+    min-height: 24rem;
     padding: 0.8rem 0.8rem 0;
     overflow: hidden;
     background: linear-gradient(145deg, #182931, #171625 65%, #101519);
+  }
+
+  .screenshot-figure {
+    min-width: 0;
+    margin: 0;
   }
 
   .featured-work-screens img {
@@ -1423,6 +1428,15 @@
     cursor: zoom-in;
   }
 
+  .screenshot-figure figcaption {
+    padding-block: 0.7rem 0.1rem;
+    color: var(--teal);
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
   .screenshot-button:focus-visible {
     outline-offset: -3px;
   }
@@ -1437,12 +1451,12 @@
     transform: translateY(-0.3rem);
   }
 
-  .featured-work-screens img:nth-child(2) {
-    transform: translateY(1.2rem);
+  .screenshot-figure:nth-child(2) {
+    transform: translateY(1rem);
   }
 
-  .featured-work-screens img:nth-child(3) {
-    transform: translateY(2.2rem);
+  .screenshot-figure:nth-child(3) {
+    transform: translateY(2rem);
   }
 
   .featured-work-art::before {
