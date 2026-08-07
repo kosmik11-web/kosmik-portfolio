@@ -182,7 +182,7 @@ function App() {
 
       <main id="main">
         <section id="hero" className="hero section-pad" aria-labelledby="hero-title">
-          <video className="hero-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="./video/kling_20260807_VIDEO_Gentle__sl_5376_0.mp4" type="video/mp4" /></video>
+          <video className="hero-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" onLoadedMetadata={(event) => { event.currentTarget.currentTime = 0.6; }}><source src="./video/kling_20260807_VIDEO_Gentle__sl_5376_0.mp4" type="video/mp4" /></video>
           <div className="hero-video-shade" aria-hidden="true" />
           <div className="hero-glow hero-glow--one" />
           <div className="hero-glow hero-glow--two" />

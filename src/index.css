@@ -350,7 +350,7 @@
 
   .hero-video {
     object-fit: cover;
-    opacity: 0.28;
+    opacity: 0.52;
     filter: saturate(0.72) contrast(1.08);
     transform: scale(1.08) translate3d(0, var(--video-shift, 0px), 0);
     transform-origin: center center;
@@ -359,7 +359,7 @@
 
   .hero-video-shade {
     z-index: -3;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 92%, transparent), color-mix(in srgb, var(--bg) 58%, transparent) 58%, color-mix(in srgb, var(--bg) 78%, transparent)), linear-gradient(0deg, color-mix(in srgb, var(--bg) 82%, transparent), transparent 55%, color-mix(in srgb, var(--bg) 72%, transparent));
+    background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 68%, transparent), color-mix(in srgb, var(--bg) 28%, transparent) 58%, color-mix(in srgb, var(--bg) 48%, transparent)), linear-gradient(0deg, color-mix(in srgb, var(--bg) 54%, transparent), transparent 55%, color-mix(in srgb, var(--bg) 48%, transparent));
   }
 
   .hero-grid {
@@ -2211,7 +2211,7 @@
     }
 
     .hero-video {
-      opacity: 0.16;
+      opacity: 0.24;
     }
 
     .hero-window {
