@@ -4,6 +4,7 @@ dist/
 .playwright-mcp/
 *.tsbuildinfo
 *.png
+!public/crypto-tracker/*.png
 *.jpg
 *.jpeg
 *.webp

@@ -1390,6 +1390,37 @@
     color: var(--violet);
   }
 
+  .featured-work-screens {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: end;
+    gap: 0.55rem;
+    min-height: 19rem;
+    padding: 0.8rem 0.8rem 0;
+    overflow: hidden;
+    background: linear-gradient(145deg, #182931, #171625 65%, #101519);
+  }
+
+  .featured-work-screens img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 0.46;
+    border: 1px solid rgba(232, 230, 240, 0.17);
+    border-bottom: 0;
+    border-radius: 0.7rem 0.7rem 0 0;
+    object-fit: cover;
+    object-position: top;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.32);
+  }
+
+  .featured-work-screens img:nth-child(2) {
+    transform: translateY(1.2rem);
+  }
+
+  .featured-work-screens img:nth-child(3) {
+    transform: translateY(2.2rem);
+  }
+
   .featured-work-art::before {
     position: absolute;
     inset: 0;
