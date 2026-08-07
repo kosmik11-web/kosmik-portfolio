@@ -90,6 +90,7 @@ function App() {
     const handleScroll = () => {
       setShowTop(window.scrollY > 600);
       document.documentElement.style.setProperty('--hero-shift', `${Math.min(window.scrollY * 0.08, 30)}px`);
+      document.documentElement.style.setProperty('--video-shift', `${Math.min(window.scrollY * 0.12, 56)}px`);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -175,13 +176,14 @@ function App() {
           <a href="#skills" onClick={closeMenu}>Навыки</a>
           <a href="#work" onClick={closeMenu}>Работа</a>
           <a href="#experience" onClick={closeMenu}>Путь</a>
-          <a href="#experience" onClick={closeMenu}>Опыт</a>
           <a className="mobile-nav__cta" href="#contact" onClick={closeMenu}>Обсудить задачу <ArrowUpRight /></a>
         </div>
       </header>
 
       <main id="main">
         <section id="hero" className="hero section-pad" aria-labelledby="hero-title">
+          <video className="hero-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="./video/kling_20260807_VIDEO_Gentle__sl_5376_0.mp4" type="video/mp4" /></video>
+          <div className="hero-video-shade" aria-hidden="true" />
           <div className="hero-glow hero-glow--one" />
           <div className="hero-glow hero-glow--two" />
           <div className="hero-grid container">

@@ -1,6 +1,9 @@
 node_modules/
 dist/
 .expo/
+video/
+!public/video/
+!public/video/*.mp4
 .playwright-mcp/
 *.tsbuildinfo
 *.png
