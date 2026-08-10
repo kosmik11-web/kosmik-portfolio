@@ -1377,6 +1377,21 @@
     color: #e8e6f0;
   }
 
+  .featured-work-art--architecture {
+    background: linear-gradient(145deg, #4e3b35, #211c1b 60%, #171516);
+  }
+
+  .featured-work-art--architecture > strong em {
+    color: #d4a574;
+  }
+
+  .featured-work-art--architecture > i {
+    width: 9rem;
+    border-color: rgba(212, 165, 116, .55);
+    border-radius: 0;
+    transform: rotate(35deg) scaleY(.24);
+  }
+
   .featured-work-card--mobile .featured-work-art {
     background: linear-gradient(145deg, #192b35, #171625 60%, #101519);
   }
