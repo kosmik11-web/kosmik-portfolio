@@ -12,3 +12,7 @@ video/
 .env
 .env.*
 !.env.example
+
+# Desktop release bundles are published through GitHub Releases.
+app/*.7z
+public/downloads/*.7z
